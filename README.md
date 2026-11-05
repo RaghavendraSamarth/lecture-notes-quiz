@@ -1,10 +1,13 @@
 # 🎓 Multilingual Lecture-to-Notes & Quiz Generator
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io/)
+[![Streamlit Cloud](https://img.shields.io/badge/Streamlit%20Cloud-Deployed-brightgreen?logo=Streamlit&logoColor=white)](https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/)
 [![Quiz Grounding](https://img.shields.io/badge/Quiz%20Source%20Grounding-100%25-brightgreen.svg)]()
 [![Gold Note Coverage](https://img.shields.io/badge/Gold%20Term%20Coverage-92.7%25-success.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> 🚀 **Live Web App:** Try the application directly in your browser at **[lecture-notes-quiz.streamlit.app](https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/)**
 
 An end-to-end, privacy-preserving lecture processing and learning assessment pipeline built in Python and Streamlit. The application accepts spoken lecture audio or raw transcripts, generates concise extractive study notes, constructs source-grounded multiple-choice cloze quizzes with distractors, and provides instant interactive evaluation with full source attribution. It additionally supports optional local speech-to-text (`faster-whisper`) and an optional GenAI abstractive draft via **BharatGen Param-1**.
 
@@ -65,8 +68,8 @@ An end-to-end, privacy-preserving lecture processing and learning assessment pip
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/multilingual-lecture-notes-quiz.git
-cd multilingual-lecture-notes-quiz
+git clone https://github.com/RaghavendraSamarth/lecture-notes-quiz.git
+cd lecture-notes-quiz
 ```
 
 ### 2. Create and Activate Virtual Environment
