@@ -1,0 +1,2 @@
+streamlit>=1.32,<2
+# Optional audio transcription: faster-whisper>=1.0, av<18

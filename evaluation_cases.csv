@@ -1,0 +1,31 @@
+case_id,transcript,gold_terms
+01,"Photosynthesis converts light energy into chemical energy. Chlorophyll absorbs sunlight in leaves. Plants use carbon dioxide and water to produce glucose and oxygen.",photosynthesis;chemical;chlorophyll;sunlight;glucose
+02,"The water cycle moves water through the environment. Evaporation changes liquid water into vapor. Condensation forms clouds and precipitation returns water to Earth.",water;evaporation;vapor;condensation;precipitation
+03,"A stack follows the last in first out rule. Push adds an item to the top. Pop removes the most recent item from the stack.",stack;last;push;pop;item
+04,"An algorithm is a finite sequence of instructions. Binary search works on sorted data. Each comparison halves the remaining search interval.",algorithm;binary;sorted;comparison;interval
+05,"The Constitution defines the structure of government. Fundamental rights protect individual freedoms. The judiciary interprets laws and reviews government action.",constitution;government;rights;freedoms;judiciary
+06,"Supply is the quantity sellers offer at different prices. Demand is the quantity buyers want. Market equilibrium occurs when supply equals demand.",supply;demand;sellers;buyers;equilibrium
+07,"Sound travels as a mechanical wave through a medium. Frequency determines perceived pitch. Amplitude is related to loudness.",sound;mechanical;frequency;pitch;amplitude
+08,"The heart pumps blood through the circulatory system. Arteries carry blood away from the heart. Veins return blood toward the heart.",heart;blood;arteries;veins;circulatory
+09,"A database stores structured information. A primary key uniquely identifies a row. SQL queries retrieve and update records.",database;structured;primary;identifies;SQL
+10,"Renewable energy comes from replenishing sources. Solar panels convert sunlight into electricity. Wind turbines use moving air to generate power.",renewable;solar;sunlight;wind;turbines
+11,"Newton's first law describes inertia. An object maintains its state unless a net external force acts. Mass measures resistance to acceleration.",Newton;inertia;object;force;mass
+12,"DNA carries hereditary information in cells. Genes are segments of DNA. Proteins perform many structural and chemical functions.",DNA;hereditary;genes;proteins;chemical
+13,"The Indian monsoon brings seasonal rainfall. Moist winds move from ocean toward land. Rainfall patterns affect agriculture and reservoirs.",monsoon;seasonal;winds;ocean;agriculture
+14,"Encryption transforms readable data into ciphertext. A key controls encryption and decryption. Strong keys help protect confidential information.",encryption;ciphertext;key;decryption;confidential
+15,"The CPU executes program instructions. RAM holds temporary working data. Storage devices retain information when power is off.",CPU;instructions;RAM;temporary;storage
+16,"A habitat provides food and shelter for organisms. Biodiversity describes the variety of life. Conservation protects species and ecosystems.",habitat;shelter;biodiversity;organisms;conservation
+17,"The derivative measures instantaneous rate of change. A slope describes direction and steepness. Calculus studies change and accumulation.",derivative;instantaneous;slope;steepness;calculus
+18,"A circuit needs a closed path for current to flow. Voltage is electrical potential difference. Resistance opposes current.",circuit;current;voltage;potential;resistance
+19,"The immune system detects pathogens. Antibodies bind to specific targets. Vaccination trains immune responses before exposure.",immune;pathogens;antibodies;targets;vaccination
+20,"A republic elects representatives to make public decisions. Citizens participate through voting. Accountability connects officials to the public.",republic;representatives;citizens;voting;accountability
+21,"Machine learning finds patterns from examples. Training adjusts model parameters. Testing estimates performance on unseen data.",machine;patterns;training;parameters;testing
+22,"The pH scale describes acidity and alkalinity. A lower pH is more acidic. Neutral water is near pH seven under standard conditions.",scale;acidity;alkalinity;acidic;neutral
+23,"Plate tectonics explains movement of Earth's lithosphere. Plates interact at boundaries. Their motion can produce earthquakes and volcanoes.",tectonics;lithosphere;boundaries;earthquakes;volcanoes
+24,"A project plan lists tasks and dependencies. Milestones mark important progress points. Risk management prepares responses to uncertainty.",project;tasks;dependencies;milestones;uncertainty
+25,"The scientific method uses observation and testing. A hypothesis is a testable explanation. Reproducible results support reliable conclusions.",scientific;observation;hypothesis;testable;reproducible
+26,"Inflation is a general rise in prices over time. A consumer price index tracks a basket of goods. Central banks monitor inflation trends.",inflation;prices;consumer;index;banks
+27,"A compiler translates source code into another form. Parsing checks grammatical structure. Optimization can improve execution efficiency.",compiler;source;parsing;grammatical;optimization
+28,"An ecosystem includes living organisms and their surroundings. Food webs represent feeding relationships. Energy flows through trophic levels.",ecosystem;organisms;food;relationships;energy
+29,"The nervous system sends signals through neurons. The brain processes information. Reflexes can produce rapid responses to stimuli.",nervous;signals;neurons;brain;reflexes
+30,"Cloud computing provides network access to shared resources. Virtualization allows multiple isolated machines. Elastic scaling adjusts capacity to demand.",cloud;network;resources;virtualization;scaling
