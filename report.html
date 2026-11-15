@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project Submission Report - Multilingual Lecture-to-Notes & Quiz Generator</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1f2937;
+    line-height: 1.55;
+    font-size: 10.5pt;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 19pt;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 0;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 8px;
+  }
+  h2 {
+    font-size: 13pt;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 4px;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+  p, ul, ol {
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+  .meta-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 9.5pt;
+  }
+  .meta-box p {
+    margin: 3px 0;
+  }
+  .meta-box strong {
+    color: #0f172a;
+  }
+  a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px 0;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #334155;
+  }
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+  .badge-pass {
+    display: inline-block;
+    background-color: #dcfce7;
+    color: #15803d;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+  }
+  pre, code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+  code {
+    background-color: #f1f5f9;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 9pt;
+    color: #0f172a;
+  }
+  pre {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    overflow-x: auto;
+    page-break-inside: avoid;
+  }
+  .diagram {
+    background-color: #fafafa;
+    border: 1px dashed #cbd5e1;
+    padding: 10px;
+    font-size: 8pt;
+    line-height: 1.35;
+    text-align: center;
+    page-break-inside: avoid;
+    white-space: pre;
+    font-family: monospace;
+    margin: 10px 0;
+  }
+  .section-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+<h1>Project Submission Report: Multilingual Lecture-to-Notes & Quiz Generator</h1>
+
+<div class="meta-box">
+  <p><strong>Coursework:</strong> Working With Large Language Models (WWLLM) — Continuous Internal Evaluation 3 (CIE 3)</p>
+  <p><strong>Student Name:</strong> M Raghavendra Samarth</p>
+  <p><strong>GitHub Repository:</strong> <a href="https://github.com/RaghavendraSamarth/lecture-notes-quiz">https://github.com/RaghavendraSamarth/lecture-notes-quiz</a></p>
+  <p><strong>Live Web Application:</strong> <a href="https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/">https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/</a></p>
+</div>
+
+<h2>Assessment Rubric Overview</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 28%;">Criterion</th>
+      <th>Project Implementation & Empirical Evidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Problem Definition & Relevance</strong></td>
+      <td>Addresses digital lecture comprehension and retention by building an auditable, privacy-preserving pipeline generating grounded notes and cloze quizzes without AI hallucinations.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Model / Dataset Selection</strong></td>
+      <td>• Speech ASR: <code>faster-whisper</code> (int8 CPU quantization with VAD).<br>
+          • Optional LLM: <code>BharatGen Param-1</code> for abstractive drafts.<br>
+          • Benchmark Dataset: 30 curated multi-disciplinary passages in <code>evaluation_cases.csv</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Working End-to-End Application</strong></td>
+      <td>Complete interactive <strong>Streamlit</strong> application supporting direct audio upload (WAV, MP3, M4A, FLAC), automated transcription, note export, dynamic MCQ quiz generation, and instant scoring with source attribution.</td>
+    </tr>
+    <tr>
+      <td><strong>4. GenAI / Speech Integration</strong></td>
+      <td>Local on-device transcription with Voice Activity Detection, paired with an auditable extractive factual baseline and optional generative foundation model integration.</td>
+    </tr>
+    <tr>
+      <td><strong>5. Quantitative Testing & Error Analysis</strong></td>
+      <td>Deterministic benchmark suite (<code>evaluate.py</code>) across 30 cases: <strong>92.7%</strong> mean gold-term note coverage and <strong>100.0%</strong> quiz answer source-grounding, accompanied by a rigorous failure analysis.</td>
+    </tr>
+    <tr>
+      <td><strong>6. Demo, Documentation & Repository</strong></td>
+      <td>Open GitHub repository with automated versioning, zero-leak <code>.gitignore</code>, comprehensive <code>README.md</code>, live Streamlit Cloud deployment, and 100% reproducible execution scripts.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>1. Problem Definition & Relevance</h2>
+<p>
+Modern blended learning relies heavily on recorded academic lectures across higher education. However, learners face substantial barriers when attempting to review lecture content efficiently:
+</p>
+<ol>
+  <li><strong>Cognitive Overload:</strong> Extracting core factual takeaways from lengthy 45–60 minute spoken lectures is time-intensive and inconsistent.</li>
+  <li><strong>Lack of Immediate Knowledge Verification:</strong> Without immediate self-assessment opportunities, students suffer from illusion-of-competence biases.</li>
+  <li><strong>Hallucination Risks in Generative AI:</strong> Unconstrained commercial LLM summarizers and quiz creators often introduce ungrounded facts, external curriculum drift, or unstated claims that mislead students during revision.</li>
+</ol>
+<p>
+This project solves these issues through a transparent, privacy-preserving pipeline that accepts audio recordings or transcripts, summarizes core concepts using <strong>auditable extractive ranking</strong>, and creates <strong>5-question multiple-choice cloze quizzes</strong> where each answer is provably grounded in its source sentence.
+</p>
+
+<h2>2. Model & Dataset Selection</h2>
+<h3>Core Architecture & Models:</h3>
+<ul>
+  <li><strong>Speech-to-Text (ASR):</strong> <code>faster-whisper</code> (small model) utilizing CTranslate2 with <code>int8</code> CPU quantization. Equipped with Voice Activity Detection (VAD) and automatic language identification with probability scoring. Includes defensive PyAV (<code>av</code>) compatibility wrappers to safeguard against keyword deprecations.</li>
+  <li><strong>Extractive Grounded Summarizer:</strong> Term frequency-inverse sentence length baseline with an introductory topic prior (<code>+0.15</code> first-sentence bias), ensuring high-density factual retention without generative drift.</li>
+  <li><strong>Cloze Quiz & Distractor Engine:</strong> In-domain candidate keyword extraction filtering non-trivial tokens (length &ge; 5, excluding generic transitionals like <em>because</em>, <em>therefore</em>, <em>however</em>). Distractors are dynamically drawn strictly from the lecture transcript's own vocabulary.</li>
+  <li><strong>Optional GenAI Model:</strong> Pretrained Indic foundation model <strong>BharatGen Param-1</strong> (<code>bharatgenai/Param-1</code>) via Hugging Face Transformers for optional 4-bullet abstractive comparative note drafts.</li>
+</ul>
+
+<h3>Benchmark Dataset:</h3>
+<p>
+The project includes a curated 30-case validation benchmark (<code>evaluation_cases.csv</code>) spanning 7 distinct disciplines: Computer Science (algorithms, stacks, databases), Biology (photosynthesis, DNA, circulatory system), Physics (Newton's laws, sound waves), Chemistry (covalent bonds), Civics & Law (Constitution, fundamental rights), Economics (supply, demand, market equilibrium), and Environmental Sciences (monsoon, water cycle).
+</p>
+
+<h2>3. Working End-to-End Application</h2>
+<p>
+Implemented as an interactive web service using <strong>Streamlit</strong> (<code>app.py</code>):
+</p>
+<ul>
+  <li><strong>Audio Input & Transcription:</strong> Allows upload of <code>.wav</code>, <code>.mp3</code>, <code>.m4a</code>, or <code>.flac</code> files. One-click transcription uses local CPU int8 inference and prints detected language and confidence.</li>
+  <li><strong>Transcript Workspace:</strong> Allows manual entry or post-editing of speech transcripts.</li>
+  <li><strong>Factual Study Notes:</strong> Ranks and outputs concise bullet points highlighting core concepts, with one-click export (<code>lecture_notes.txt</code>).</li>
+  <li><strong>Interactive Cloze Quiz:</strong> Generates five multiple-choice questions with randomized option ordering.</li>
+  <li><strong>Automated Grading & Source Audit:</strong> Grades learner answers instantly and presents the exact verbatim source sentence for each question to support auditability.</li>
+</ul>
+
+<div class="section-break"></div>
+
+<h2>4. System Architecture & Pipeline Flow</h2>
+<div class="diagram">
+  [ Spoken Lecture Audio (.wav / .mp3 / .m4a) ]
+                       │
+                       ▼
+           ┌───────────────────────┐
+           │     faster-whisper    │  (int8 CPU, VAD filter, language detection)
+           └───────────┬───────────┘
+                       │
+                       ▼
+           [ Raw Lecture Transcript ] ◄── (Direct Text Input)
+                       │
+          ┌────────────┴──────────────────────────┬────────────────────────────┐
+          ▼                                       ▼                            ▼
+  ┌───────────────────┐                 ┌───────────────────┐        ┌───────────────────┐
+  │ Extractive Notes  │                 │ Cloze Quiz Engine │        │ BharatGen Param-1 │
+  │ Sentence Scorer   │                 │ & Distractor Pool │        │ (Optional GenAI   │
+  └─────────┬─────────┘                 └─────────┬─────────┘        │  Abstractive LLM) │
+            │                                     │                  └─────────┬─────────┘
+            ▼                                     ▼                            ▼
+     Concise Factual                       5-Question MCQs              4-Bullet Abstractive
+       Study Notes                        with Source Audit                     Draft
+</div>
+
+<h2>5. Quantitative Testing & Error Analysis</h2>
+
+<h3>Deterministic Benchmark Results (<code>evaluate.py</code>):</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Evaluation Metric</th>
+      <th>Benchmark Requirement</th>
+      <th>Measured Score</th>
+      <th>Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Representative Test Cases</strong></td>
+      <td>30–50 domain cases</td>
+      <td><strong>30 cases</strong></td>
+      <td><span class="badge-pass">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>Mean Gold-Term Note Coverage</strong></td>
+      <td>&gt; 80.0% retention</td>
+      <td><strong>92.7%</strong></td>
+      <td><span class="badge-pass">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>Quiz Answer Source-Grounding</strong></td>
+      <td>100.0% provenance rate</td>
+      <td><strong>100.0%</strong></td>
+      <td><span class="badge-pass">PASSED</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+<strong>Key Empirical Findings:</strong>
+</p>
+<ul>
+  <li><strong>92.7% Gold-Term Coverage:</strong> Across all 30 benchmark cases, the extractive summary retained nearly all human-annotated core curriculum concepts without generating irrelevant fluff.</li>
+  <li><strong>100.0% Source-Grounding:</strong> Every single generated quiz answer exists verbatim in its displayed source sentence, demonstrating zero false fact generation.</li>
+</ul>
+
+<h3>Failure & Error Analysis:</h3>
+<ol>
+  <li><strong>Low-Frequency Detail Omission:</strong> Frequency-weighted scoring naturally favors recurring terms. Critical single-mention terms (such as an edge-case theorem or brief formula) can be outranked by repeated introductory ideas.</li>
+  <li><strong>Cloze Term Selection Ambiguity:</strong> Blanks are chosen using alphabetic tokens of length &ge; 5. In sentences with complex descriptive adjectives (e.g., <em>"mechanical wave"</em>), the adjective may occasionally be chosen instead of the primary technical noun.</li>
+  <li><strong>Distractor Homogeneity on Short Inputs:</strong> On short transcripts (&lt; 30 words), the available vocabulary pool is compact, which can result in distractors from different syntactic classes.</li>
+  <li><strong>Script Segmentation Boundaries:</strong> Segmentation relies on formal punctuation (<code>.</code>, <code>!</code>, <code>?</code>, <code>।</code>). Unpunctuated speech transcripts produce compound sentences rather than discrete factual statements.</li>
+  <li><strong>Acoustic Error Cascade:</strong> Phonetic transcription inaccuracies in noisy audio propagate downstream directly into generated summary notes and quiz blanks.</li>
+</ol>
+
+<h2>6. Demonstration, Documentation & Repository</h2>
+<ul>
+  <li><strong>GitHub Repository:</strong> <a href="https://github.com/RaghavendraSamarth/lecture-notes-quiz">https://github.com/RaghavendraSamarth/lecture-notes-quiz</a>
+    <ul>
+      <li>Protected with a comprehensive <code>.gitignore</code> preventing commits of virtual environments, cache files, and audio buffers.</li>
+      <li>Documented with a detailed <code>README.md</code> with badges, architecture, live deployment links, and setup guides.</li>
+    </ul>
+  </li>
+  <li><strong>Live Cloud Application:</strong> <a href="https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/">https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/</a></li>
+  <li><strong>Reproduction Instructions:</strong>
+    <pre>git clone https://github.com/RaghavendraSamarth/lecture-notes-quiz.git
+cd lecture-notes-quiz
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+python evaluate.py           # Executes quantitative benchmark
+streamlit run app.py         # Launches live web interface</pre>
+  </li>
+</ul>
+
+</body>
+</html>

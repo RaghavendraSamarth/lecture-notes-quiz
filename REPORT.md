@@ -113,3 +113,4 @@ Running deterministic validation across all 30 benchmark cases:
   python evaluate.py           # Runs quantitative benchmark
   streamlit run app.py         # Launches web interface
   ```
+
