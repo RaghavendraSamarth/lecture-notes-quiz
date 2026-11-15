@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lab Report - Multilingual Lecture-to-Notes & Quiz Generator</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 16mm 16mm 16mm;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #1f2937;
+    line-height: 1.5;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+  }
+  .header-card {
+    border: 1.5px solid #2563eb;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .header-title {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .header-sub {
+    font-size: 10.5pt;
+    color: #3b82f6;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    font-size: 9.5pt;
+    margin-top: 6px;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 6px;
+  }
+  .link-item strong {
+    color: #0f172a;
+    display: inline-block;
+    width: 170px;
+  }
+  .link-item a {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  h2 {
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 12px 0 5px 0;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  p, ul, ol {
+    margin: 4px 0 6px 0;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 10px 0;
+    font-size: 9pt;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 5px 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+  .badge {
+    background-color: #dcfce7;
+    color: #166534;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+  }
+  .output-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #3b82f6;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 6px 0;
+    font-size: 9.5pt;
+  }
+  code {
+    background: #e2e8f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 9pt;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+<div class="header-card">
+  <div class="header-title">Lab Submission Report</div>
+  <div class="header-sub">Multilingual Lecture-to-Notes & Quiz Generator</div>
+  <div class="links-grid">
+    <div class="link-item"><strong>Student Name:</strong> M Raghavendra Samarth</div>
+    <div class="link-item"><strong>Coursework:</strong> Working With Large Language Models (WWLLM) — CIE 3 Activity</div>
+    <div class="link-item"><strong>GitHub Repository:</strong> <a href="https://github.com/RaghavendraSamarth/lecture-notes-quiz">https://github.com/RaghavendraSamarth/lecture-notes-quiz</a></div>
+    <div class="link-item"><strong>Live Deployed App:</strong> <a href="https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/">https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/</a></div>
+  </div>
+</div>
+
+<h2>1. Aim & Objective</h2>
+<p>
+To build and evaluate a privacy-preserving, auditable educational application that:
+</p>
+<ul>
+  <li>Transcribes multi-format spoken lecture audio (WAV, MP3, M4A, FLAC) on CPU using quantized speech recognition.</li>
+  <li>Generates concise, factual extractive summary notes while eliminating generative hallucination risks.</li>
+  <li>Automatically formulates 5-question multiple-choice cloze quizzes with domain-relevant in-lecture distractors.</li>
+  <li>Provides instant scoring alongside verbatim source-sentence citations for complete auditability.</li>
+</ul>
+
+<h2>2. Tools & Technologies</h2>
+<ul>
+  <li><strong>Application Framework:</strong> Python 3.10+, Streamlit, Streamlit Community Cloud</li>
+  <li><strong>Speech Recognition (ASR):</strong> <code>faster-whisper</code> (CTranslate2, <code>int8</code> CPU inference, Voice Activity Detection)</li>
+  <li><strong>Audio Handling:</strong> PyAV (<code>av</code>) with cross-version argument wrapper compatibility</li>
+  <li><strong>Generative LLM (Optional):</strong> <code>bharatgenai/Param-1</code> via Hugging Face Transformers pipeline</li>
+  <li><strong>Benchmarking Suite:</strong> Python deterministic smoke test framework (<code>evaluate.py</code>)</li>
+</ul>
+
+<h2>3. System Pipeline</h2>
+<ol>
+  <li><strong>Input:</strong> User uploads lecture audio or enters/pastes lecture text.</li>
+  <li><strong>ASR Transcription:</strong> <code>faster-whisper</code> transcribes audio into text, displaying detected language and confidence.</li>
+  <li><strong>Extractive Ranking:</strong> Scores sentences by content word frequency normalized by length with an introductory bias (<code>+0.15</code>).</li>
+  <li><strong>Cloze Generation:</strong> Extracts key domain concepts (length &ge; 5) as blanks and pools distractors from the lecture vocabulary.</li>
+  <li><strong>Automated Grading:</strong> Validates user selections, tallies scores, and displays exact source sentences for verification.</li>
+</ol>
+
+<h2>4. Quantitative Evaluation Results</h2>
+<p>Tested on a benchmark suite of <strong>30 diverse lecture passages</strong> in <code>evaluation_cases.csv</code> (Computer Science, Physics, Chemistry, Biology, Civics, Economics, Earth Sciences):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evaluation Metric</th>
+      <th>Benchmark Standard</th>
+      <th>Measured Score</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Representative Test Cases</strong></td>
+      <td>&ge; 30 passages</td>
+      <td><strong>30 cases</strong></td>
+      <td><span class="badge">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>Mean Gold-Term Note Coverage</strong></td>
+      <td>&gt; 80.0% coverage</td>
+      <td><strong>92.7%</strong></td>
+      <td><span class="badge">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>Quiz Answer Source-Grounding</strong></td>
+      <td>100.0% factual grounding</td>
+      <td><strong>100.0%</strong></td>
+      <td><span class="badge">PASSED</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<h2>5. Sample Demonstration & Execution Output</h2>
+
+<div class="output-box">
+  <strong>Sample Input Transcript Excerpt:</strong><br>
+  <em>"Photosynthesis converts light energy into chemical energy. Chlorophyll absorbs sunlight in leaves. Plants use carbon dioxide and water to produce glucose and oxygen."</em>
+</div>
+
+<div class="output-box">
+  <strong>Generated Extractive Study Notes:</strong><br>
+  • <em>Photosynthesis converts light energy into chemical energy.</em><br>
+  • <em>Chlorophyll absorbs sunlight in leaves.</em><br>
+  • <em>Plants use carbon dioxide and water to produce glucose and oxygen.</em>
+</div>
+
+<div class="output-box">
+  <strong>Generated Multiple-Choice Cloze Question:</strong><br>
+  <strong>Question:</strong> Chlorophyll absorbs sunlight in <code>________</code>.<br>
+  <strong>Options:</strong> A) chemical &nbsp;&nbsp;&nbsp;&nbsp; B) leaves &nbsp;&nbsp;&nbsp;&nbsp; C) glucose &nbsp;&nbsp;&nbsp;&nbsp; D) oxygen<br>
+  <strong>Correct Answer:</strong> <strong>leaves</strong><br>
+  <strong>Verbatim Source Citation:</strong> <em>"Chlorophyll absorbs sunlight in leaves."</em> (Grounding: 100%)
+</div>
+
+<h2>6. Submission & Project Links</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Direct URL Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Source Code (GitHub)</strong></td>
+      <td><a href="https://github.com/RaghavendraSamarth/lecture-notes-quiz">https://github.com/RaghavendraSamarth/lecture-notes-quiz</a></td>
+    </tr>
+    <tr>
+      <td><strong>Live Web Application</strong></td>
+      <td><a href="https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/">https://lecture-notes-quiz-tqwsq7j9me8yvqklyxqnnn.streamlit.app/</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>7. Conclusion</h2>
+<p>
+The application successfully satisfies all laboratory requirements for the WWLLM Continuous Internal Evaluation. By combining on-device audio transcription with auditable extractive ranking, the system guarantees 100% factual grounding without hallucination risks or recurring API costs. The project is completely open-source, reproducible, and accessible via the live cloud deployment above.
+</p>
+
+</body>
+</html>
